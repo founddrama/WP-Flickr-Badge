@@ -3,16 +3,16 @@
  * Plugin Name: WP Flickr Badge
  * Version: 0.1
  * Plugin URI: https://github.com/founddrama/WP-Flickr-Badge
- * Description: Plugin adds the found_drama Flickr Badge to the Orin theme
+ * Description: Super-simple Flickr badge plugin for WordPress blog sidebars.
  * Author: Rob Friesel
  * Author URI: http://blog.founddrama.net
 */
-class Orin_Flickr_Badge extends WP_Widget {
+class WP_Flickr_Badge extends WP_Widget {
 	/** constructor */
-	function Orin_Flickr_Badge() {
-		$widget_ops = array('classname' => 'widget_orin_flickr_badge', 'description' => __('The Orin theme\'s Flickr badge'));
+	function WP_Flickr_Badge() {
+		$widget_ops = array('classname' => 'widget_wp_flickr_badge', 'description' => __('The a simple Flickr badge'));
 		$control_ops = array('width' => 400, 'height' => 350);
-		$this->WP_Widget('orin_flickr_badge', __('Orin Flickr Badge'), $widget_ops, $control_ops);
+		$this->WP_Widget('wp_flickr_badge', __('WP Flickr Badge'), $widget_ops, $control_ops);
 	}
 	
 	/** @see WP_Widget::widget */
@@ -42,7 +42,7 @@ class Orin_Flickr_Badge extends WP_Widget {
 	
 }
 
-add_action('widgets_init', create_function('', 'return register_widget("Orin_Flickr_Badge");'));
+add_action('widgets_init', create_function('', 'return register_widget("WP_Flickr_Badge");'));
 add_action('wp_footer', create_function('', 'echo \'<link rel="stylesheet" type="text/css" href="'.plugins_url('/css/wp-flickr-badge.css',__FILE__).'" />
 	<script type="text/javascript" src="'.plugins_url('/js/wp-flickr-badge.js',__FILE__).'"></script>\';'));
 ?>
