@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Flickr Badge
  * Version: 0.1
- * Plugin URI: http://blog.founddrama.net
+ * Plugin URI: https://github.com/founddrama/WP-Flickr-Badge
  * Description: Plugin adds the found_drama Flickr Badge to the Orin theme
  * Author: Rob Friesel
  * Author URI: http://blog.founddrama.net
@@ -19,9 +19,10 @@ class Orin_Flickr_Badge extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args);
 		/* 28555778%40N00 */
+		$flickr_user = $instance['flickr_user'];
 		echo $before_widget;
-		if ( $instance['flickr_user'] ) ?>
-				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&display=random&size=s&layout=x&source=user&user=<?php echo $instance['flickr_user'] ?>"></script></div><a href="http://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
+		if ( $flickr_user ) ?>
+				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=10&display=random&size=s&layout=x&source=user&user=<?php echo $flickr_user; ?>"></script></div><a href="http://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
 			<?php
 			echo $after_widget;
 	}
@@ -42,5 +43,6 @@ class Orin_Flickr_Badge extends WP_Widget {
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("Orin_Flickr_Badge");'));
-
+add_action('wp_footer', create_function('', 'echo \'<link rel="stylesheet" type="text/css" href="'.plugins_url('/css/wp-flickr-badge.css',__FILE__).'" />
+	<script type="text/javascript" src="'.plugins_url('/js/wp-flickr-badge.js',__FILE__).'"></script>\';'));
 ?>
