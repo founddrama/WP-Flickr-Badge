@@ -4,7 +4,7 @@
  * @todo - test in a few different themes - remove any of the CSS that is specific to Orin/Ortho (make it flexible)
  */
 
-$_font_family: 'Arial' 'Helvetica' sans-serif !important;
+$_font_family: "Arial","Helvetica",sans-serif !important;
 
 #flickr_badge_uber_wrapper {
 	height: 81px;
@@ -34,22 +34,20 @@ $_font_family: 'Arial' 'Helvetica' sans-serif !important;
 #flickr_www_wrapper {
 	background: #fff;
 	bottom: 2px;
-	font-family: $_font_family;
-	font-weight: bold;
 	padding: 1px;
 	position: absolute;
 	right: 1px;
 	z-index: 201;
-	* {
-		font-family: $_font_family;
-		font-weight: bold;
-	}
 }
 #flickr_www {
 	color: #3993ff !important;
 	display: block;
 	font: 11px $_font_family;
 	font-weight: bold;
+	* {
+		font: 11px $_font_family;
+		font-weight: bold !important;
+	}
 }
 #flickr_badge_source {
 	margin: 0 10px 0 10px;
