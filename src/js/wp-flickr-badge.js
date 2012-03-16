@@ -4,6 +4,8 @@
 if (window.jQuery) {
   (function($){
     $(document).ready(function(){
+      $('.flickr_badge_image').prependTo('#flickr_badge_wrapper');
+
       var i, w = $('#flickr_www_wrapper');
 
       $('.flickr_badge_image').hover(function(){
