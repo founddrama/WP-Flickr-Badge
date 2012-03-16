@@ -25,8 +25,11 @@ class WP_Flickr_Badge extends WP_Widget {
 		$size = $instance['photo_size'];
 		echo $before_widget;
 		if ( $flickr_user ) ?>
-				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=<?php echo $count; ?>&display=<?php echo $display; ?>&size=<?php echo $size; ?>&layout=x&source=user&user=<?php echo $flickr_user; ?>"></script></div><a href="http://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
+				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"></div><a href="http://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
 			<?php
+			add_action('wp_footer',
+				create_function('', 'echo \'<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=' . $count . '&display=' . $display . '&size=' . $size . '&layout=x&source=user&user=' . $flickr_user . '"></script>\';')
+			);
 			echo $after_widget;
 	}
 	
