@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WP Flickr Badge
- * Version: 0.1
+ * Version: 0.3
  * Plugin URI: https://github.com/founddrama/WP-Flickr-Badge
  * Description: Super-simple Flickr badge plugin for WordPress blog sidebars.
  * Author: Rob Friesel
- * Author URI: http://blog.founddrama.net
+ * Author URI: https://blog.founddrama.net
 */
 class WP_Flickr_Badge extends WP_Widget {
 	/** constructor */
@@ -25,10 +25,10 @@ class WP_Flickr_Badge extends WP_Widget {
 		$size = $instance['photo_size'];
 		echo $before_widget;
 		if ( $flickr_user ) ?>
-				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"></div><a href="http://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
+				<div id="flickr_badge_uber_wrapper"><div id="flickr_badge_wrapper"></div><a href="https://www.flickr.com" id=flickr_www><span id="flickr_www_wrapper">flick<span style="color:#ff1c92;">r</span></span></a></div>
 			<?php
 			add_action('wp_footer',
-				create_function('', 'echo \'<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=' . $count . '&display=' . $display . '&size=' . $size . '&layout=x&source=user&user=' . $flickr_user . '"></script>\';')
+				create_function('', 'echo \'<script type="text/javascript" src="https://www.flickr.com/badge_code_v2.gne?count=' . $count . '&display=' . $display . '&size=' . $size . '&layout=x&source=user&user=' . $flickr_user . '"></script>\';')
 			);
 			echo $after_widget;
 	}
